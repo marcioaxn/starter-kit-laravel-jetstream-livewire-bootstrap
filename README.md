@@ -1,5 +1,4 @@
-﻿```markdown
-<p align="center">
+﻿<p align="center">
   <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">
     <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel">
   </a>
@@ -80,4 +79,3 @@ npm run build   # or npm run dev for HMR mode
 Project distributed under the [MIT](LICENSE) license.  
 Author: Marcio Alessandro Xavier Neto.  
 This Starter Kit was produced with AI assistance (Codex GPT-5).
-```
