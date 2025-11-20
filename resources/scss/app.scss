@@ -1,0 +1,195 @@
+@use "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root,
+[data-bs-theme='light'] {
+    --app-surface-bg: #ffffff;
+    --app-surface-border: rgba(15, 23, 42, 0.08);
+    --app-surface-subtle-bg: #f8f9fa;
+    --app-sidebar-link-hover-bg: rgba(13, 110, 253, 0.08);
+    --app-topbar-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+[data-bs-theme='dark'] {
+    --app-surface-bg: #181b1f;
+    --app-surface-border: rgba(255, 255, 255, 0.08);
+    --app-surface-subtle-bg: #20242a;
+    --app-sidebar-link-hover-bg: rgba(125, 178, 255, 0.12);
+    --app-topbar-shadow: 0 1px 2px rgba(0, 0, 0, 0.65);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+.btn-icon-only {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+}
+
+.app-shell {
+    background-color: var(--bs-body-bg);
+}
+
+.app-main {
+    min-width: 0;
+}
+
+.app-content {
+    background-color: transparent;
+}
+
+.app-surface {
+    background-color: var(--app-surface-bg);
+    border-color: var(--app-surface-border) !important;
+    color: inherit;
+}
+
+.app-surface-subtle {
+    background-color: var(--app-surface-subtle-bg);
+    color: inherit;
+}
+
+.app-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    box-shadow: var(--app-topbar-shadow);
+}
+
+.app-sidebar {
+    width: 260px;
+    transition: width 0.3s ease;
+    position: relative;
+    z-index: 1020;
+    flex: 0 0 auto;
+    overflow: hidden;
+    background-color: var(--app-surface-bg);
+    border-color: var(--app-surface-border) !important;
+
+    .sidebar-text {
+        transition: opacity 0.2s ease;
+        transform-origin: left center;
+        display: inline-block;
+    }
+
+    .nav-link {
+        border-radius: var(--bs-border-radius);
+        font-weight: 500;
+        white-space: nowrap;
+        color: var(--bs-body-color);
+
+        &.active {
+            background-color: var(--bs-primary);
+            color: #fff;
+        }
+
+        &:not(.active):hover {
+            background-color: var(--app-sidebar-link-hover-bg);
+        }
+    }
+}
+
+.app-sidebar.is-collapsed {
+    width: 80px;
+
+    .sidebar-text {
+        display: none !important;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding-inline: 0.75rem;
+    }
+
+    .app-sidebar-header .btn-icon {
+        margin-inline-start: auto;
+    }
+
+    .app-sidebar-footer {
+        display: none;
+    }
+}
+
+.app-sidebar-header .app-brand-mark {
+    height: 2rem;
+    width: auto;
+}
+
+.app-sidebar-scroll {
+    scrollbar-width: thin;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.table-card .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-card .table thead th {
+    white-space: nowrap;
+}
+
+.table-card .table tbody td {
+    vertical-align: middle;
+}
+
+.table-nowrap td,
+.table-nowrap th {
+    white-space: nowrap;
+}
+
+.table-card .card-header,
+.table-card .card-footer {
+    background-color: transparent;
+}
+
+.table-card .card-header .card-title {
+    font-weight: 600;
+}
+
+.table-card .card-body + .card-footer {
+    border-top: 1px solid var(--app-surface-border);
+}
+
+[data-bs-theme='dark'] .table-card .table-light {
+    --bs-table-bg: rgba(255,255,255,0.05);
+    --bs-table-color: var(--bs-body-color);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.dashboard-stat-icon,
+.welcome-logo,
+.welcome-icon {
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--bs-border-radius-lg);
+    font-size: 1.35rem;
+}
+
+.welcome-logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+}
+
+.welcome-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 991.98px) {
+    .app-sidebar {
+        display: none !important;
+    }
+}
+
