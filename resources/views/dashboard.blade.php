@@ -248,8 +248,12 @@
                     </div>
                     <button class="btn btn-outline-primary btn-sm"
                             type="button"
-                            data-bs-toggle="toast"
-                            data-bs-target="#starter-toast-example">
+                            x-data
+                            x-on:click="
+                                let toastEl = document.getElementById('starter-toast-example');
+                                let toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+                                toast.show();
+                            ">
                         <i class="bi bi-megaphone me-1"></i> {{ __('Exibir') }}
                     </button>
                 </div>

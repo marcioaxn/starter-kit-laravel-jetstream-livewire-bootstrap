@@ -5,6 +5,12 @@ import focus from '@alpinejs/focus';
 import Tooltip from 'bootstrap/js/dist/tooltip';
 import Toast from 'bootstrap/js/dist/toast';
 
+// Make Bootstrap components globally accessible for inline scripts like Alpine.js
+window.bootstrap = {
+    Tooltip: Tooltip,
+    Toast: Toast
+};
+
 window.deferLoadingAlpine = true;
 
 Alpine.plugin(mask);
