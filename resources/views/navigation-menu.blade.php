@@ -27,6 +27,7 @@
 
         <div class="d-flex align-items-center gap-2">
             <button type="button"
+                    id="appThemeSwitcher"
                     class="btn btn-outline-secondary btn-iconno-border no-border"
                     aria-label="{{ __('Toggle theme') }}"
                     data-bs-toggle="tooltip"

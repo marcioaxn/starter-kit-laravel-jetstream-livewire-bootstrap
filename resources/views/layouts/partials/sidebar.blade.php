@@ -18,16 +18,6 @@
             <x-application-mark class="app-brand-mark flex-shrink-0" />
             <span class="sidebar-text fw-semibold text-uppercase small mb-0">{{ config('app.name', 'Laravel') }}</span>
         </a>
-
-        <button type="button"
-                class="btn btn-outline-secondary btn-icon"
-                aria-label="{{ __('Toggle sidebar') }}"
-                data-bs-toggle="tooltip"
-                data-bs-placement="bottom"
-                title="{{ __('Collapse sidebar') }}"
-                @click="$dispatch('app-toggle-sidebar')">
-            <i class="bi bi-layout-sidebar-inset"></i>
-        </button>
     </div>
 
     <div class="app-sidebar-scroll flex-grow-1 overflow-auto px-2 pb-4">

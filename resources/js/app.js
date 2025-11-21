@@ -54,13 +54,6 @@ const initTooltips = (scope = document) => {
             delay: { show: 150, hide: 100 },
         });
 
-        if (!element.dataset.tooltipBound) {
-            element.addEventListener('mouseleave', () => tooltip.hide());
-            element.addEventListener('blur', () => tooltip.hide());
-            element.addEventListener('click', () => tooltip.hide());
-            element.dataset.tooltipBound = 'true';
-        }
-
         console.debug('[app.js] tooltip initialised', element);
     });
 };
@@ -119,6 +112,20 @@ window.appLayout = function () {
             this.theme = this.theme === 'light' ? 'dark' : this.theme === 'dark' ? 'system' : 'light';
             localStorage.setItem(THEME_KEY, this.theme);
             applyTheme(this.theme);
+
+            // Update and hide tooltip
+            const themeSwitcher = document.getElementById('appThemeSwitcher');
+            if (themeSwitcher) {
+                const tooltipInstance = Tooltip.getInstance(themeSwitcher);
+                if (tooltipInstance) {
+                    // Update content. Bootstrap 5 uses setContent
+                    tooltipInstance.setContent({ '.tooltip-inner': this.themeLabel });
+                    // Hide after a short delay to allow the user to see the updated text
+                    setTimeout(() => {
+                        tooltipInstance.hide();
+                    }, 500); // 500ms delay to see the updated tooltip content
+                }
+            }
         },
         init() {
             applyTheme(this.theme);
