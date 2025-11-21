@@ -1,6 +1,6 @@
-﻿<p align="center">
+<p align="center">
   <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="320" alt="Laravel">
+    <img src="public/img/_0403eb0b-de95-4131-87cd-5c705ae95535.png" width="320" alt="New Logo">
   </a>
 </p>
 
