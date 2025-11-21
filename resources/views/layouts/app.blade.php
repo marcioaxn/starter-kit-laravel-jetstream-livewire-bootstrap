@@ -41,7 +41,7 @@
         <div class="app-shell d-flex min-vh-100">
             @include('layouts.partials.sidebar', ['items' => $appNavigation])
 
-            <div class="app-main flex-grow-1 d-flex flex-column">
+            <div class="app-main flex-grow-1 d-flex flex-column" :class="{'is-sidebar-collapsed': sidebarCollapsed}">
                 @livewire('navigation-menu')
 
                 @if (isset($header))

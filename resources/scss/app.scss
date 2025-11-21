@@ -48,6 +48,8 @@ body {
 
 .app-main {
     min-width: 0;
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
 }
 
 .app-content {
@@ -75,7 +77,9 @@ body {
 .app-sidebar {
     width: 260px;
     transition: width 0.3s ease;
-    position: relative;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     z-index: 1020;
     flex: 0 0 auto;
     overflow: hidden;
@@ -124,6 +128,10 @@ body {
     .app-sidebar-footer {
         display: none;
     }
+}
+
+.app-main.is-sidebar-collapsed {
+    margin-left: 80px;
 }
 
 .app-sidebar-header .app-brand-mark {
