@@ -2,7 +2,7 @@
     <div class="container-fluid px-3 py-2 d-flex align-items-center justify-content-between gap-3">
         <div class="d-flex align-items-center gap-2">
             <button type="button"
-                    class="btn btn-outline-secondary btn-icon d-lg-none"
+                    class="btn btn-outline-secondary btn-icon d-lg-none no-border"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#appSidebarOffcanvas"
                     aria-controls="appSidebarOffcanvas"
@@ -11,7 +11,7 @@
             </button>
 
             <button type="button"
-                    class="btn btn-outline-secondary btn-icon d-none d-lg-inline-flex"
+                    class="btn btn-outline-secondary btn-icon d-none d-lg-inline-flex no-border"
                     aria-label="{{ __('Toggle sidebar') }}"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
@@ -27,7 +27,7 @@
 
         <div class="d-flex align-items-center gap-2">
             <button type="button"
-                    class="btn btn-outline-secondary btn-icon"
+                    class="btn btn-outline-secondary btn-iconno-border no-border"
                     aria-label="{{ __('Toggle theme') }}"
                     data-bs-toggle="tooltip"
                     data-bs-placement="bottom"
@@ -39,7 +39,7 @@
             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                 <x-dropdown align="right" width="60">
                     <x-slot name="trigger">
-                        <button type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2 no-border">
                             {{ Auth::user()->currentTeam->name }}
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-secondary" style="width: 1rem; height: 1rem;">
@@ -85,7 +85,7 @@
                             <img class="rounded-circle object-fit-cover" style="width: 2.5rem; height: 2.5rem;" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
                         </button>
                     @else
-                        <button type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2">
+                        <button type="button" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2 no-border">
                             {{ Auth::user()->name }}
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-secondary" style="width: 1rem; height: 1rem;">

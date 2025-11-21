@@ -22,6 +22,16 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+.no-border {
+    border: none !important;
+}
+
+.no-border:hover,
+.no-border:focus,
+.no-border:active {
+    border: none !important;
+}
+
 [x-cloak] {
     display: none !important;
 }
@@ -153,14 +163,14 @@ body {
     font-weight: 600;
 }
 
-.table-card .card-body + .card-footer {
+.table-card .card-body+.card-footer {
     border-top: 1px solid var(--app-surface-border);
 }
 
 [data-bs-theme='dark'] .table-card .table-light {
-    --bs-table-bg: rgba(255,255,255,0.05);
+    --bs-table-bg: rgba(255, 255, 255, 0.05);
     --bs-table-color: var(--bs-body-color);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dashboard-stat-icon,
@@ -192,4 +202,3 @@ body {
         display: none !important;
     }
 }
-
