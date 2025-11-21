@@ -78,4 +78,4 @@ npm run build   # or npm run dev for HMR mode
 ## License
 Project distributed under the [MIT](LICENSE) license.  
 Author: Marcio Alessandro Xavier Neto.  
-This Starter Kit was produced with AI assistance (Codex GPT-5).
+This Starter Kit was produced with AI assistance (Codex GPT-5 | Gemini 2.5 PRO / 3).
