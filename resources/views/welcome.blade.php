@@ -42,7 +42,7 @@
 </head>
 <body class="antialiased">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">{{ config('app.name', 'Laravel') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,8 +87,9 @@
         style="background-image: url('https://images.unsplash.com/photo-1598333690981-d30ea723b8fd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
         <div class="bg-overlay"></div>
         <div class="container position-relative" style="z-index: 2;">
-            <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Empowering Regional Development</h1>
-            <p class="lead mb-5 animate__animated animate__fadeInUp">Promoting national integration and balanced growth across all regions.</p>
+            <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Base Project Starter Kit</h1>
+            <p class="lead mb-5 animate__animated animate__fadeInUp">Laravel + Jetstream + Livewire + Bootstrap
+</p>
             <div class="animate__animated animate__fadeInUp animate__delay-1s">
                 <a href="#programs" class="btn btn-primary btn-lg rounded-pill px-5 me-3 scroll-link">Explore Programs</a>
                 <a href="#contact" class="btn btn-outline-light btn-lg rounded-pill px-5 scroll-link">Get in Touch</a>
@@ -180,28 +181,28 @@
                                         <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=200&auto=format&fit=crop"
                                             alt="Partner Bank" class="img-fluid">
                                     </div>
-                                    <small class="text-muted">Bank of Brazil</small>
+                                    <small class="text-muted">Bank of America</small>
                                 </div>
                                 <div class="col-6 text-center">
                                     <div class="bg-light rounded p-4 mb-2">
                                         <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=200&auto=format&fit=crop"
                                             alt="Partner Bank" class="img-fluid">
                                     </div>
-                                    <small class="text-muted">Bank of Northeast</small>
+                                    <small class="text-muted">Chase Bank</small>
                                 </div>
                                 <div class="col-6 text-center">
                                     <div class="bg-light rounded p-4 mb-2">
                                         <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=200&auto=format&fit=crop"
                                             alt="Partner Bank" class="img-fluid">
                                     </div>
-                                    <small class="text-muted">Caixa Economica</small>
+                                    <small class="text-muted">Wells Fargo</small>
                                 </div>
                                 <div class="col-6 text-center">
                                     <div class="bg-light rounded p-4 mb-2">
                                         <img src="https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=200&auto=format&fit=crop"
                                             alt="Partner Bank" class="img-fluid">
                                     </div>
-                                    <small class="text-muted">BNDES</small>
+                                    <small class="text-muted">Citibank</small>
                                 </div>
                             </div>
                         </div>
@@ -417,14 +418,14 @@
         <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="badge bg-primary mb-3 px-3 py-2">Where We Operate</span>
-                <h2 class="display-5 fw-bold mb-3">Projects Across Brazil</h2>
+                <h2 class="display-5 fw-bold mb-3">Projects Across United States of America</h2>
                 <p class="lead text-muted">Discover the regions benefiting from our programs</p>
             </div>
 
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7">
                     <div class="bg-light rounded-4 p-5 shadow-sm" style="min-height: 500px; position: relative;">
-                        <img src="https://images.pexels.com/photos/41951/earth-blue-planet-globe-planet-41951.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        <img src="https://images.unsplash.com/photo-1594935975218-a3596da034a3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="World map with connections" class="img-fluid rounded-3"
                             style="width: 100%; height: 100%; object-fit: cover;">
                         <div
@@ -527,7 +528,7 @@
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
                                     <h6 class="fw-bold mb-0">John Doe</h6>
-                                    <small class="text-muted">Rural Producer - Bahia</small>
+                                    <small class="text-muted">Rural Producer - Newark</small>
                                 </div>
                             </div>
                         </div>
@@ -551,7 +552,7 @@
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
                                     <h6 class="fw-bold mb-0">Maria Santos</h6>
-                                    <small class="text-muted">Cooperative - Pará</small>
+                                    <small class="text-muted">Cooperative - Stamford</small>
                                 </div>
                             </div>
                         </div>
@@ -575,7 +576,7 @@
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
                                     <h6 class="fw-bold mb-0">Pedro Oliveira</h6>
-                                    <small class="text-muted">Producer - Maranhão</small>
+                                    <small class="text-muted">Producer - Yonkers</small>
                                 </div>
                             </div>
                         </div>
@@ -684,7 +685,7 @@
                 <div class="col-lg-8">
                     <h2 class="display-4 fw-bold text-white mb-4">Be Part of This Transformation</h2>
                     <p class="lead text-white mb-5" style="opacity: 0.95;">Together, we build a more integrated,
-                        developed Brazil with opportunities for all Brazilians.</p>
+                        developed United States of America with opportunities for all Americans.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center">
                         <a href="#programs"
                             class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-semibold scroll-link">Discover
@@ -731,7 +732,7 @@
                         </div>
                         <div>
                             <h5 class="fw-bold mb-2">Email</h5>
-                            <p class="text-muted mb-0">contact@midr.gov.br</p>
+                            <p class="text-muted mb-0">contact@us.gov</p>
                         </div>
                     </div>
 
@@ -744,7 +745,7 @@
                         </div>
                         <div>
                             <h5 class="fw-bold mb-2">Address</h5>
-                            <p class="text-muted mb-0">Esplanada dos Ministérios, Block E<br>Brasília - DF, 70067-900
+                            <p class="text-muted mb-0">Esplanada dos Ministérios, Block E<br>New York, NY 10001
                             </p>
                         </div>
                     </div>
@@ -864,7 +865,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         <p class="text-white-50 mb-0 small">&copy; {{ date('Y') }} Ministry of Integration and
-                            Regional Development. All rights reserved.</p>
+                            Regional Development of the United States of America. All rights reserved.</p>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <a href="/privacy-policy" class="text-white-50 text-decoration-none small me-3">Privacy
@@ -880,7 +881,7 @@
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
-        style="width: 50px; height: 50px; display: none; z-index: 1000;">
+        style="width: 50px; height: 50px; display: none; z-index: 1000; align-items: center; justify-content: center;">
         <svg width="20" height="20" fill="white" viewBox="0 0 16 16">
             <path
                 d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
