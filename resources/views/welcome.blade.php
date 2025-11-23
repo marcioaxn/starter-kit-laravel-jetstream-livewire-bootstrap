@@ -84,7 +84,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center justify-content-center text-center vh-100 position-relative parallax-bg"
-        style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2070&auto=format&fit=crop');">
+        style="background-image: url('https://images.unsplash.com/photo-1598333690981-d30ea723b8fd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
         <div class="bg-overlay"></div>
         <div class="container position-relative" style="z-index: 2;">
             <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Empowering Regional Development</h1>
@@ -413,7 +413,7 @@
     </section>
     
     <!-- Geographic Coverage -->
-    <section class="py-5 section-light-blue">
+    <section id="geographic-coverage" class="py-5 section-light-blue">
         <div class="container py-5">
             <div class="text-center mb-5">
                 <span class="badge bg-primary mb-3 px-3 py-2">Where We Operate</span>
@@ -424,7 +424,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-7">
                     <div class="bg-light rounded-4 p-5 shadow-sm" style="min-height: 500px; position: relative;">
-                        <img src="https://images.unsplash.com/photo-1531685252068-d7426618e001?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="https://images.pexels.com/photos/41951/earth-blue-planet-globe-planet-41951.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="World map with connections" class="img-fluid rounded-3"
                             style="width: 100%; height: 100%; object-fit: cover;">
                         <div
@@ -500,7 +500,7 @@
 
     <!-- Testimonials -->
     <section id="testimonials" class="py-5 position-relative overflow-hidden section-dark-blue parallax-bg"
-        style="background-image: url('https://images.unsplash.com/photo-1552586326-0e10411a2f60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="bg-overlay"></div>
         <div class="container py-5 position-relative" style="z-index: 2;">
             <div class="text-center mb-5">
@@ -522,7 +522,7 @@
                             <p class="mb-4">"Thanks to the rural credit program, I was able to modernize my
                                 property and triple production. Today I employ 15 people from the community."</p>
                             <div class="d-flex align-items-center">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194d6b4890?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
                                     alt="John Doe" class="rounded-circle me-3"
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
@@ -546,7 +546,7 @@
                             <p class="mb-4">"The training we received transformed our cooperative. We learned
                                 new techniques and today we export to three countries."</p>
                             <div class="d-flex align-items-center">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
                                     alt="Maria Santos" class="rounded-circle me-3"
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
@@ -570,7 +570,7 @@
                             <p class="mb-4">"The infrastructure that arrived here changed everything. Now we have access to
                                 markets and our production has gained value."</p>
                             <div class="d-flex align-items-center">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                                     alt="Pedro Oliveira" class="rounded-circle me-3"
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
@@ -676,8 +676,8 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="py-5 position-relative overflow-hidden hero-section parallax-bg"
-        style="background-image: url('https://images.unsplash.com/photo-1552586326-0e10411a2f60?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <section id="final-cta" class="py-5 position-relative overflow-hidden hero-section parallax-bg"
+        style="background-image: url('https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
         <div class="bg-overlay"></div>
         <div class="container py-5 position-relative" style="z-index: 2;">
             <div class="row justify-content-center text-center">
