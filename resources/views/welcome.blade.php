@@ -36,7 +36,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(42, 21, 6, 0.4);
         }
     </style>
 </head>
@@ -84,7 +84,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center justify-content-center text-center vh-100 position-relative parallax-bg"
-        style="background-image: url('https://images.unsplash.com/photo-1598333690981-d30ea723b8fd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
         <div class="bg-overlay"></div>
         <div class="container position-relative" style="z-index: 2;">
             <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">Base Project Starter Kit</h1>
@@ -109,7 +109,7 @@
                     <a href="/about" class="btn btn-primary rounded-pill px-4">Learn More</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=2070&auto=format&fit=crop" class="img-fluid rounded-4 shadow-lg" alt="Nature, blue/green landscape">
+                    <img src="https://images.unsplash.com/photo-1598333690981-d30ea723b8fd?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-4 shadow-lg" alt="Nature, blue/green landscape">
                 </div>
             </div>
         </div>
@@ -548,10 +548,10 @@
                                 new techniques and today we export to three countries."</p>
                             <div class="d-flex align-items-center">
                                 <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1"
-                                    alt="Maria Santos" class="rounded-circle me-3"
+                                    alt="Sophia Jones" class="rounded-circle me-3"
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
-                                    <h6 class="fw-bold mb-0">Maria Santos</h6>
+                                    <h6 class="fw-bold mb-0">Sophia Smith</h6>
                                     <small class="text-muted">Cooperative - Stamford</small>
                                 </div>
                             </div>
@@ -575,7 +575,7 @@
                                     alt="Pedro Oliveira" class="rounded-circle me-3"
                                     style="width: 50px; height: 50px; object-fit: cover;">
                                 <div>
-                                    <h6 class="fw-bold mb-0">Pedro Oliveira</h6>
+                                    <h6 class="fw-bold mb-0">Noah Jones</h6>
                                     <small class="text-muted">Producer - Yonkers</small>
                                 </div>
                             </div>
