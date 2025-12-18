@@ -182,9 +182,9 @@
     {{-- CRUD Table Preview --}}
     @php
         $showcaseRecords = [
-            ['name' => 'Leads', 'entity' => 'Comercial', 'status' => 'Em andamento', 'variant' => 'primary', 'updated_at' => 'há 5 min'],
-            ['name' => 'Projetos', 'entity' => 'PMO', 'status' => 'Revisão', 'variant' => 'warning', 'updated_at' => 'há 32 min'],
-            ['name' => 'Financeiro', 'entity' => 'Contabilidade', 'status' => 'Aprovado', 'variant' => 'success', 'updated_at' => 'há 1h'],
+            ['name' => 'Leads', 'entity' => 'Sales', 'status' => 'In Progress', 'variant' => 'primary', 'updated_at' => '5 min ago'],
+            ['name' => 'Projects', 'entity' => 'PMO', 'status' => 'Review', 'variant' => 'warning', 'updated_at' => '32 min ago'],
+            ['name' => 'Finance', 'entity' => 'Accounting', 'status' => 'Approved', 'variant' => 'success', 'updated_at' => '1h ago'],
         ];
     @endphp
 

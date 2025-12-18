@@ -92,7 +92,7 @@ class LeadsTable extends Component
 
     public function getStatusesProperty(): array
     {
-        return ['all' => __('Todos')] + Lead::STATUSES;
+        return ['all' => __('All')] + Lead::STATUSES;
     }
 
     public function getStatusOptionsProperty(): array
@@ -160,10 +160,10 @@ class LeadsTable extends Component
 
         if ($this->editing) {
             $this->editing->update($data);
-            $message = __('Lead atualizado com sucesso.');
+            $message = __('Lead updated successfully.');
         } else {
             $this->editing = Lead::create($data);
-            $message = __('Lead criado com sucesso.');
+            $message = __('Lead created successfully.');
         }
 
         $this->notify($message);
@@ -189,7 +189,7 @@ class LeadsTable extends Component
     {
         if ($this->editing) {
             $this->editing->delete();
-            $this->notify(__('Lead removido com sucesso.'), 'warning');
+            $this->notify(__('Lead deleted successfully.'), 'warning');
         }
 
         $this->dispatch('deleted');
@@ -207,12 +207,12 @@ class LeadsTable extends Component
             $handle = fopen('php://output', 'w');
             fputcsv($handle, [
                 'ID',
-                'Nome',
-                'Equipe',
+                'Name',
+                'Team',
                 'Status',
                 'Email',
-                'Telefone',
-                'Atualizado em',
+                'Phone',
+                'Updated at',
             ]);
 
             foreach ($leads as $lead) {

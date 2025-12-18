@@ -1,42 +1,45 @@
 <div>
-    <x-slot name="header">
-        <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
-            <div>
-                <div class="d-flex align-items-center gap-2 mb-1">
-                    <h1 class="h4 text-body-emphasis mb-0">{{ __('Leads') }}</h1>
-                    <span class="badge bg-primary-subtle text-primary rounded-pill">
-                        {{ $leads->total() }}
-                    </span>
-                </div>
-                <p class="text-muted small mb-0">
-                    {{ __('Manage your leads and track their progress through the sales pipeline.') }}
-                </p>
+    {{-- Page Header --}}
+    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3 mb-4">
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <h1 class="h4 text-body-emphasis mb-0">{{ __('Leads') }}</h1>
+                <span class="badge bg-primary-subtle text-primary rounded-pill">
+                    {{ $leads->total() }}
+                </span>
             </div>
-
-            <div class="d-flex align-items-center gap-2">
-                <div wire:loading.delay.short wire:target="search,status,resetFilters,save,delete,exportCsv,create,edit" class="text-primary">
-                    <span class="spinner-border spinner-border-sm" role="status">
-                        <span class="visually-hidden">{{ __('Loading...') }}</span>
-                    </span>
-                </div>
-
-                <x-action-button
-                    variant="outline-secondary"
-                    icon="download"
-                    tooltip="{{ __('Export CSV') }}"
-                    wire:click="exportCsv"
-                    wire:loading.attr="disabled"
-                >
-                    <span class="d-none d-md-inline">{{ __('Export') }}</span>
-                </x-action-button>
-
-                <x-action-button variant="primary" icon="plus" tooltip="{{ __('Add new lead') }}" wire:click="create">
-                    <span class="d-none d-sm-inline">{{ __('New Lead') }}</span>
-                    <span class="d-sm-none">{{ __('New') }}</span>
-                </x-action-button>
-            </div>
+            <p class="text-muted small mb-0">
+                {{ __('Manage your leads and track their progress through the sales pipeline.') }}
+            </p>
         </div>
-    </x-slot>
+
+        <div class="d-flex align-items-center gap-2">
+            <div wire:loading.delay.short wire:target="search,status,resetFilters,save,delete,exportCsv,create,edit" class="text-primary">
+                <span class="spinner-border spinner-border-sm" role="status">
+                    <span class="visually-hidden">{{ __('Loading...') }}</span>
+                </span>
+            </div>
+
+            <x-action-button
+                variant="outline-secondary"
+                icon="download"
+                tooltip="{{ __('Export CSV') }}"
+                wire:click="exportCsv"
+                wire:loading.attr="disabled"
+            >
+                <span class="d-none d-md-inline">{{ __('Export') }}</span>
+            </x-action-button>
+
+            <x-action-button
+                variant="primary"
+                icon="plus"
+                tooltip="{{ __('Add new lead') }}"
+                wire:click="create"
+            >
+                {{ __('New Lead') }}
+            </x-action-button>
+        </div>
+    </div>
 
     @if ($flashMessage)
         <div class="alert alert-{{ $flashStyle }} alert-dismissible fade show d-flex align-items-center gap-2 mb-4" role="alert">
@@ -400,7 +403,7 @@
                             id="lead-phone"
                             type="text"
                             class="form-control @error('form.phone') is-invalid @enderror"
-                            placeholder="{{ __('+55 (11) 99999-9999') }}"
+                            placeholder="{{ __('+1 (555) 123-4567') }}"
                             wire:model.defer="form.phone"
                         >
                     </div>
