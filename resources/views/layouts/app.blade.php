@@ -4,8 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta data-update-uri="{{ url('/livewire/update') }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/_0403eb0b-de95-4131-87cd-5c705ae95535.png') }}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/_0403eb0b-de95-4131-87cd-5c705ae95535.png') }}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -25,6 +29,11 @@
 
         @php
             $appNavigation = [
+                [
+                    'label' => __('Home'),
+                    'href' => url('/'),
+                    'icon' => 'house-door',
+                ],
                 [
                     'label' => __('Dashboard'),
                     'route' => 'dashboard',
