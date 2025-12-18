@@ -14,7 +14,8 @@
        :class="{'is-collapsed': sidebarCollapsed}">
     <div class="app-sidebar-header d-flex align-items-center justify-content-between gap-2 p-3">
         <a class="app-brand d-flex align-items-center gap-2 text-decoration-none text-reset"
-           href="{{ route('dashboard') }}">
+           href="{{ route('dashboard') }}"
+           wire:navigate>
             <x-application-mark class="app-brand-mark flex-shrink-0" />
             <span class="sidebar-text fw-semibold text-uppercase small mb-0">{{ config('app.name', 'Laravel') }}</span>
         </a>
@@ -34,6 +35,7 @@
                 @endphp
 
                 <a href="{{ $url }}"
+                   wire:navigate
                    class="nav-link d-flex align-items-center gap-2 py-2 px-3 {{ $isActive ? 'active' : '' }}"
                    data-bs-toggle="tooltip"
                    data-bs-placement="right"
@@ -56,7 +58,7 @@
                 <div class="sidebar-text">
                     <p class="fw-semibold mb-0 text-truncate">{{ Auth::user()->name }}</p>
                     <p class="text-muted small mb-0 text-truncate">{{ Auth::user()->email }}</p>
-                    <a href="{{ route('profile.show') }}" class="link-primary small text-decoration-none">
+                    <a href="{{ route('profile.show') }}" wire:navigate class="link-primary small text-decoration-none">
                         {{ __('View profile') }}
                     </a>
                 </div>
@@ -99,6 +101,7 @@
                     @endphp
 
                     <a href="{{ $url }}"
+                       wire:navigate
                        class="nav-link d-flex align-items-center gap-2 {{ $isActive ? 'active' : '' }}"
                        data-bs-dismiss="offcanvas">
                         <i class="bi bi-{{ $item['icon'] }} fs-5 flex-shrink-0"></i>
@@ -108,7 +111,7 @@
             </nav>
         </div>
 
-        <a href="{{ route('profile.show') }}" class="btn btn-outline-secondary">
+        <a href="{{ route('profile.show') }}" wire:navigate class="btn btn-outline-secondary">
             {{ __('Manage profile') }}
         </a>
 

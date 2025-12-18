@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(php artisan:*)",
+      "Bash(php artisan cache:clear:*)",
+      "Bash(git checkout:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
