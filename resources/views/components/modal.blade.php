@@ -20,8 +20,8 @@
     x-on:keydown.escape.window="show = false"
     x-show="show"
     id="{{ $id }}"
-    class="jetstream-modal position-fixed top-0 start-0 w-100 h-100 overflow-auto py-5 px-3 z-50"
-    style="display: none;"
+    class="jetstream-modal position-fixed top-0 start-0 w-100 h-100 overflow-auto py-5 px-3"
+    style="display: none; z-index: 1050;"
 >
     <div x-show="show"
          class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
