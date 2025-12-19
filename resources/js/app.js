@@ -30,7 +30,7 @@ const startAlpine = () => {
     console.debug('[app.js] Alpine started');
 };
 
-const THEME_KEY = 'appThemePreference';
+const THEME_KEY = 'app.theme';
 const SIDEBAR_KEY = 'appSidebarCollapsed';
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
