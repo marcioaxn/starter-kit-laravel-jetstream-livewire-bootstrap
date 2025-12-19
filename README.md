@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Laravel Jetstream Livewire Bootstrap Starter Kit</h1>
+<h1 align="center">Laravel Jetstream + Livewire + Bootstrap Starter Kit</h1>
 
 <p align="center">
   <strong>Production-ready Laravel 12 starter kit with modern UX/UI, complete authentication, and dark mode support</strong>
