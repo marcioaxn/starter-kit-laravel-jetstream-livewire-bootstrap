@@ -21,12 +21,12 @@ class LeadFactory extends Factory
         return [
             'name' => $this->faker->company(),
             'entity' => $this->faker->randomElement([
-                'Comercial',
+                'Sales',
                 'Marketing',
-                'PMO',
-                'Financeiro',
-                'Suporte',
-                'Operacoes',
+                'Project Management',
+                'Finance',
+                'Support',
+                'Operations',
             ]),
             'status' => $this->faker->randomElement($statuses),
             'email' => $this->faker->unique()->companyEmail(),
