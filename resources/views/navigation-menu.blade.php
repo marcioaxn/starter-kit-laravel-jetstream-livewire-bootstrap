@@ -21,7 +21,7 @@
             </button>
 
             <span class="fw-semibold text-muted small text-uppercase d-none d-sm-inline">
-                {{ config('app.name', 'Laravel') }} teste
+                {{ config('app.name', 'Laravel') }}
             </span>
         </div>
 

@@ -140,7 +140,7 @@
 
             <!-- Submit Button -->
             <div class="d-grid mb-4">
-                <button type="submit" class="btn btn-primary btn-register" id="registerButton">
+                <button type="submit" class="btn btn-primary btn-register gradient-theme-btn" id="registerButton">
                     <span class="btn-text">
                         <i class="bi bi-person-plus me-2"></i>
                         {{ __('Create account') }}
@@ -465,24 +465,18 @@
             color: #9ec5fe;
         }
 
-        /* Register Button */
+        /* Register Button - uses global .gradient-theme-btn class */
         .btn-register {
             height: 52px;
             border-radius: 12px;
             font-weight: 600;
             font-size: 1rem;
-            border: none;
-            background: linear-gradient(135deg, var(--bs-primary), #0a58ca);
-            color: white;
-            box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.3);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .btn-register:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(var(--bs-primary-rgb), 0.4);
         }
 
         .btn-register:active:not(:disabled) {
@@ -492,15 +486,6 @@
         .btn-register:disabled {
             opacity: 0.8;
             cursor: not-allowed;
-        }
-
-        [data-bs-theme="dark"] .btn-register {
-            background: linear-gradient(135deg, #4d94ff, #0d6efd);
-            box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
-        }
-
-        [data-bs-theme="dark"] .btn-register:hover:not(:disabled) {
-            box-shadow: 0 6px 24px rgba(13, 110, 253, 0.5);
         }
 
         .btn-loading {
