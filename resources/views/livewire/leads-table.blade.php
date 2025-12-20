@@ -3,7 +3,7 @@
     <div class="leads-header d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3 mb-4">
         <div>
             <div class="d-flex align-items-center gap-2 mb-2">
-                <div class="header-icon">
+                <div class="header-icon gradient-theme-icon">
                     <i class="bi bi-people-fill"></i>
                 </div>
                 <h1 class="h3 fw-bold mb-0">{{ __('Leads') }}</h1>
@@ -39,7 +39,7 @@
                 icon="plus-lg"
                 tooltip="{{ __('Add new lead') }}"
                 wire:click="create"
-                class="btn-action-primary"
+                class="btn-action-primary gradient-theme-btn"
             >
                 {{ __('New Lead') }}
             </x-action-button>
@@ -203,7 +203,7 @@
                                             <i class="bi bi-x-lg me-2"></i>{{ __('Clear filters') }}
                                         </button>
                                     @else
-                                        <x-action-button variant="primary" icon="plus-lg" wire:click="create" class="btn-action-primary">
+                                        <x-action-button variant="primary" icon="plus-lg" wire:click="create" class="btn-action-primary gradient-theme-btn">
                                             {{ __('Create Lead') }}
                                         </x-action-button>
                                     @endif
@@ -296,7 +296,7 @@
                                     <i class="bi bi-x-lg me-2"></i>{{ __('Clear filters') }}
                                 </button>
                             @else
-                                <x-action-button variant="primary" icon="plus-lg" wire:click="create" class="btn-action-primary">
+                                <x-action-button variant="primary" icon="plus-lg" wire:click="create" class="btn-action-primary gradient-theme-btn">
                                     {{ __('Create Lead') }}
                                 </x-action-button>
                             @endif
@@ -508,17 +508,12 @@
     .leads-header .header-icon {
         width: 48px;
         height: 48px;
-        background: linear-gradient(135deg, var(--bs-primary), #0a58ca);
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
         font-size: 1.5rem;
-    }
-
-    [data-bs-theme="dark"] .leads-header .header-icon {
-        background: linear-gradient(135deg, #4d94ff, #0d6efd);
+        /* Uses global .gradient-theme-icon class */
     }
 
     .badge-modern.badge-count {
@@ -543,22 +538,9 @@
     }
 
     .btn-action-primary {
-        background: linear-gradient(135deg, var(--bs-primary), #0a58ca);
-        border: none;
-        color: white;
         border-radius: 10px;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(var(--bs-primary-rgb), 0.25);
-        transition: all 0.2s ease;
-    }
-
-    .btn-action-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.35);
-    }
-
-    [data-bs-theme="dark"] .btn-action-primary {
-        background: linear-gradient(135deg, #4d94ff, #0d6efd);
+        /* Uses global .gradient-theme-btn class */
     }
 
     /* ========== Alerts ========== */
@@ -614,6 +596,7 @@
     .input-group-modern {
         border-radius: 10px;
         overflow: hidden;
+        display: flex;
     }
 
     .input-group-modern .input-group-text {
@@ -621,12 +604,14 @@
         border: 2px solid var(--bs-border-color);
         border-right: none;
         color: var(--bs-secondary);
+        border-radius: 10px 0 0 10px;
     }
 
     .input-group-modern .form-control,
     .input-group-modern .form-select {
         border: 2px solid var(--bs-border-color);
         border-left: none;
+        border-radius: 0 10px 10px 0;
     }
 
     .input-group-modern .form-control:focus,
@@ -635,7 +620,12 @@
         box-shadow: none;
     }
 
-    .input-group-modern .form-control:focus ~ .input-group-text {
+    .input-group-modern .form-control:focus ~ .input-group-text,
+    .input-group-modern .form-control:focus + .input-group-text {
+        border-color: var(--bs-primary);
+    }
+
+    .input-group-modern:focus-within .input-group-text {
         border-color: var(--bs-primary);
     }
 

@@ -80,7 +80,7 @@
 
             <!-- Submit Button -->
             <div class="d-grid mb-4">
-                <button type="submit" class="btn btn-primary btn-login" id="loginButton">
+                <button type="submit" class="btn btn-primary btn-login gradient-theme-btn" id="loginButton">
                     <span class="btn-text">
                         <i class="bi bi-box-arrow-in-right me-2"></i>
                         {{ __('Sign in to your account') }}
@@ -286,24 +286,18 @@
             color: #9ec5fe;
         }
 
-        /* Login Button */
+        /* Login Button - uses global .gradient-theme-btn class */
         .btn-login {
             height: 52px;
             border-radius: 12px;
             font-weight: 600;
             font-size: 1rem;
-            border: none;
-            background: linear-gradient(135deg, var(--bs-primary), #0a58ca);
-            color: white;
-            box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.3);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .btn-login:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(var(--bs-primary-rgb), 0.4);
         }
 
         .btn-login:active:not(:disabled) {
@@ -313,15 +307,6 @@
         .btn-login:disabled {
             opacity: 0.8;
             cursor: not-allowed;
-        }
-
-        [data-bs-theme="dark"] .btn-login {
-            background: linear-gradient(135deg, #4d94ff, #0d6efd);
-            box-shadow: 0 4px 16px rgba(13, 110, 253, 0.4);
-        }
-
-        [data-bs-theme="dark"] .btn-login:hover:not(:disabled) {
-            box-shadow: 0 6px 24px rgba(13, 110, 253, 0.5);
         }
 
         .btn-loading {

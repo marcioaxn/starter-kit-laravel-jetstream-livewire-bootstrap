@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- Enhanced Header with Gradient --}}
     <x-slot name="header">
-        <div class="dashboard-header-gradient rounded-3 p-4 mb-4">
+        <div class="gradient-theme-header rounded-3 p-4 mb-4">
             <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
                 <div class="flex-grow-1">
                     <div class="d-flex align-items-center gap-3 mb-2">
@@ -347,16 +347,7 @@
 
     {{-- Custom Styles for Enhanced Dashboard --}}
     <style>
-        /* Dashboard Header Gradient */
-        .dashboard-header-gradient {
-            background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-dark, #0056b3) 100%);
-            box-shadow: 0 8px 32px rgba(var(--bs-primary-rgb), 0.2);
-        }
-
-        [data-bs-theme="dark"] .dashboard-header-gradient {
-            background: linear-gradient(135deg, var(--bs-primary) 0%, #004085 100%);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
+        /* Dashboard Header - uses global .gradient-theme-header class */
 
         /* Avatar Greeting */
         .avatar-greeting .avatar-circle {
