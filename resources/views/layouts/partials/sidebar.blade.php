@@ -189,14 +189,29 @@
     transform: translateX(2px);
 }
 
+.nav-link-modern:hover i {
+    color: var(--bs-primary);
+}
+
 .nav-link-modern.active {
     /* Gradient handled by global .gradient-theme-nav class */
     color: white;
 }
 
-.nav-link-modern.active:hover {
-    transform: translateX(0);
+.nav-link-modern.active i {
     color: white;
+}
+
+.nav-link-modern.active:hover {
+    /* Keep gradient background on hover for active items */
+    background: inherit !important;
+    transform: translateX(0);
+    color: white !important;
+}
+
+/* Ensure icons stay white on hover for active items - IMPORTANT */
+.nav-link-modern.active:hover i {
+    color: white !important;
 }
 
 /* Centralize icons when sidebar is collapsed */
@@ -217,9 +232,27 @@
     color: var(--bs-primary);
 }
 
+[data-bs-theme="dark"] .nav-link-modern:hover i {
+    color: var(--bs-primary);
+}
+
 [data-bs-theme="dark"] .nav-link-modern.active {
     /* Gradient handled by global .gradient-theme-nav class */
     color: white;
+}
+
+[data-bs-theme="dark"] .nav-link-modern.active i {
+    color: white;
+}
+
+[data-bs-theme="dark"] .nav-link-modern.active:hover {
+    /* Keep gradient background on hover for active items */
+    background: inherit !important;
+    color: white !important;
+}
+
+[data-bs-theme="dark"] .nav-link-modern.active:hover i {
+    color: white !important;
 }
 
 /* User Card in Footer */
@@ -489,9 +522,28 @@
     color: var(--bs-primary);
 }
 
+.nav-link-modern-mobile:hover i {
+    color: var(--bs-primary);
+}
+
 .nav-link-modern-mobile.active {
     /* Gradient handled by global .gradient-theme-nav class */
     color: white;
+}
+
+.nav-link-modern-mobile.active i {
+    color: white;
+}
+
+.nav-link-modern-mobile.active:hover {
+    /* Keep gradient background on hover for active items */
+    background: inherit !important;
+    color: white !important;
+}
+
+/* Ensure icons stay white on hover for active items - IMPORTANT */
+.nav-link-modern-mobile.active:hover i {
+    color: white !important;
 }
 
 [data-bs-theme="dark"] .nav-link-modern-mobile {
@@ -503,9 +555,27 @@
     color: var(--bs-primary);
 }
 
+[data-bs-theme="dark"] .nav-link-modern-mobile:hover i {
+    color: var(--bs-primary);
+}
+
 [data-bs-theme="dark"] .nav-link-modern-mobile.active {
     /* Gradient handled by global .gradient-theme-nav class */
     color: white;
+}
+
+[data-bs-theme="dark"] .nav-link-modern-mobile.active i {
+    color: white;
+}
+
+[data-bs-theme="dark"] .nav-link-modern-mobile.active:hover {
+    /* Keep gradient background on hover for active items */
+    background: inherit !important;
+    color: white !important;
+}
+
+[data-bs-theme="dark"] .nav-link-modern-mobile.active:hover i {
+    color: white !important;
 }
 
 /* Action Buttons */

@@ -19,6 +19,18 @@
             </div>
         @endsession
 
+        <!-- Session Expired Alert -->
+        <div id="sessionExpiredAlert" class="alert alert-info alert-modern alert-dismissible fade mb-4 d-none" role="alert">
+            <div class="d-flex align-items-start">
+                <i class="bi bi-info-circle-fill me-2 fs-5 flex-shrink-0 mt-1"></i>
+                <div class="flex-grow-1">
+                    <strong class="d-block mb-1">Sessão expirada por segurança</strong>
+                    <p class="mb-0 small">Por segurança, sua sessão foi encerrada automaticamente. Por favor, faça login novamente para continuar.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
         <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate id="loginForm">
             @csrf
 
@@ -67,7 +79,7 @@
                 <div class="form-check form-check-modern">
                     <x-checkbox id="remember_me" name="remember" class="form-check-input-modern" />
                     <label class="form-check-label" for="remember_me">
-                        {{ __('Remember me') }}
+                        &nbsp;&nbsp;{{ __('Remember me') }}
                     </label>
                 </div>
 
@@ -332,6 +344,28 @@
             color: #75b798;
         }
 
+        [data-bs-theme="dark"] .alert-modern.alert-info {
+            background-color: rgba(13, 202, 240, 0.15);
+            border: 1px solid rgba(13, 202, 240, 0.3);
+            color: #9eeaf9;
+        }
+
+        .alert-modern.alert-info .bi-info-circle-fill {
+            color: var(--bs-info);
+        }
+
+        [data-bs-theme="dark"] .alert-modern.alert-info .bi-info-circle-fill {
+            color: #9eeaf9;
+        }
+
+        .alert-modern .btn-close {
+            font-size: 0.75rem;
+        }
+
+        [data-bs-theme="dark"] .alert-modern .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
         /* Security Badge */
         .security-badge {
             padding: 0.75rem;
@@ -415,6 +449,25 @@
 
         // Form submission handling
         document.addEventListener('DOMContentLoaded', function() {
+            // Check for expired session
+            const sessionExpired = localStorage.getItem('session_expired');
+            if (sessionExpired === 'true') {
+                const alert = document.getElementById('sessionExpiredAlert');
+                if (alert) {
+                    alert.classList.remove('d-none');
+                    alert.classList.add('show');
+
+                    // Clear the flag
+                    localStorage.removeItem('session_expired');
+
+                    // Auto-hide after 15 seconds
+                    setTimeout(() => {
+                        const bsAlert = bootstrap.Alert.getOrCreateInstance(alert);
+                        bsAlert.close();
+                    }, 15000);
+                }
+            }
+
             const loginForm = document.getElementById('loginForm');
             const loginButton = document.getElementById('loginButton');
 

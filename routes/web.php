@@ -17,4 +17,9 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/leads', LeadsTable::class)->name('leads.index');
+
+    // Session ping endpoint for session renewal
+    Route::post('/session/ping', function () {
+        return response()->json(['success' => true, 'timestamp' => now()->toIso8601String()]);
+    })->name('session.ping');
 });

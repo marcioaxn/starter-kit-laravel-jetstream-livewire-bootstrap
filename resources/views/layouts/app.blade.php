@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="session-lifetime" content="{{ config('session.lifetime') }}">
         <meta data-update-uri="{{ url('/livewire/update') }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -38,6 +39,11 @@
 
             .gradient-theme-nav:hover {
                 box-shadow: 0 4px 12px rgba(var(--theme-primary-rgb), 0.4);
+                color: white;
+            }
+
+            .gradient-theme-nav:hover i {
+                color: white !important;
             }
 
             /* Gradient for buttons */
@@ -78,6 +84,55 @@
 
             [data-bs-theme="dark"] .gradient-theme-header {
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            }
+
+            /* ========== SESSION TIMER STYLES ========== */
+            .session-timer-wrapper {
+                padding: 0.375rem 0.75rem;
+                background: rgba(var(--bs-body-color-rgb), 0.05);
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+
+            [data-bs-theme="dark"] .session-timer-wrapper {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .session-timer-display {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 0.875rem;
+                letter-spacing: 0.05em;
+                min-width: 65px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .session-timer-display.text-warning {
+                color: var(--bs-warning) !important;
+                font-weight: 600 !important;
+            }
+
+            .session-timer-display.text-danger {
+                color: var(--bs-danger) !important;
+                font-weight: 700 !important;
+                animation: pulse-danger 1.5s ease-in-out infinite;
+            }
+
+            @keyframes pulse-danger {
+                0%, 100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.6;
+                }
+            }
+
+            .session-timer-wrapper:hover {
+                background: rgba(var(--bs-primary-rgb), 0.1);
+            }
+
+            [data-bs-theme="dark"] .session-timer-wrapper:hover {
+                background: rgba(var(--bs-primary-rgb), 0.15);
             }
         </style>
     </head>
