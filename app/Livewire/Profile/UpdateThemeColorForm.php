@@ -8,6 +8,7 @@ use Livewire\Component;
 class UpdateThemeColorForm extends Component
 {
     public $themeColor;
+    public $previousThemeColor;
 
     public $availableColors = [
         'primary' => [
@@ -40,6 +41,15 @@ class UpdateThemeColorForm extends Component
     public function mount()
     {
         $this->themeColor = Auth::user()->theme_color ?? 'primary';
+        $this->previousThemeColor = $this->themeColor;
+    }
+
+    public function updated($propertyName)
+    {
+        // Auto-save when theme color changes
+        if ($propertyName === 'themeColor' && $this->themeColor !== $this->previousThemeColor) {
+            $this->updateThemeColor();
+        }
     }
 
     public function updateThemeColor()
@@ -51,6 +61,8 @@ class UpdateThemeColorForm extends Component
         Auth::user()->update([
             'theme_color' => $this->themeColor,
         ]);
+
+        $this->previousThemeColor = $this->themeColor;
 
         $this->dispatch('theme-updated', themeColor: $this->themeColor);
         $this->dispatch('saved');

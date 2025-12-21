@@ -26,6 +26,15 @@
         </div>
 
         <div class="d-flex align-items-center gap-2">
+            <!-- Session Timer -->
+            <div class="session-timer-wrapper d-none d-md-flex align-items-center gap-2"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="bottom"
+                 title="Tempo restante de sessão">
+                <i class="bi bi-clock-history text-body-secondary"></i>
+                <span id="sessionTimer" class="session-timer-display text-body-secondary small fw-mono">--:--:--</span>
+            </div>
+
             <button type="button"
                     id="appThemeSwitcher"
                     class="btn btn-outline-secondary btn-iconno-border no-border"

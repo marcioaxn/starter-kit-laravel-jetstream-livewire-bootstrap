@@ -6,6 +6,9 @@
 
         <x-slot name="description">
             {{ __('Customize the appearance of your dashboard by selecting your preferred theme color.') }}
+            <span class="d-block mt-2 text-muted small">
+                <i class="bi bi-info-circle me-1"></i>{{ __('Changes are saved automatically when you select a color.') }}
+            </span>
         </x-slot>
 
         <x-slot name="form">
@@ -36,18 +39,16 @@
         </x-slot>
 
         <x-slot name="actions">
-            <x-action-message class="me-3" on="saved">
-                <i class="bi bi-check-circle-fill me-1"></i>{{ __('Theme updated!') }}
-            </x-action-message>
+            <div class="d-flex align-items-center gap-3">
+                <span wire:loading wire:target="updateThemeColor" class="text-muted small">
+                    <span class="spinner-border spinner-border-sm me-2"></span>{{ __('Saving...') }}
+                </span>
 
-            <button type="submit" class="btn btn-primary-modern">
-                <span wire:loading.remove wire:target="updateThemeColor">
-                    <i class="bi bi-palette-fill me-2"></i>{{ __('Update Theme') }}
-                </span>
-                <span wire:loading wire:target="updateThemeColor">
-                    <span class="spinner-border spinner-border-sm me-2"></span>{{ __('Updating...') }}
-                </span>
-            </button>
+                <x-action-message class="mb-0" on="saved">
+                    <i class="bi bi-check-circle-fill me-1 text-success"></i>
+                    <span class="text-success fw-semibold">{{ __('Theme updated automatically!') }}</span>
+                </x-action-message>
+            </div>
         </x-slot>
     </x-form-section>
 
