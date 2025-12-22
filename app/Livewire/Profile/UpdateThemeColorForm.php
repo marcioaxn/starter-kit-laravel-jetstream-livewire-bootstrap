@@ -14,27 +14,27 @@ class UpdateThemeColorForm extends Component
         'primary' => [
             'name' => 'Ocean Blue',
             'description' => 'Classic professional blue theme',
-            'preview' => '#0d6efd',
-        ],
-        'secondary' => [
-            'name' => 'Slate Gray',
-            'description' => 'Sophisticated neutral gray',
-            'preview' => '#6c757d',
-        ],
-        'success' => [
-            'name' => 'Forest Green',
-            'description' => 'Fresh and natural green',
-            'preview' => '#198754',
-        ],
-        'warning' => [
-            'name' => 'Sunset Orange',
-            'description' => 'Warm and energetic orange',
-            'preview' => '#ffc107',
+            'preview' => 'linear-gradient(135deg, #1B408E, #5375C2)', // Deep Blue -> Lightened Blue
         ],
         'info' => [
             'name' => 'Sky Cyan',
             'description' => 'Light and airy cyan',
-            'preview' => '#0dcaf0',
+            'preview' => 'linear-gradient(135deg, #0891b2, #67E8F9)', // Cyan 600 -> Cyan 300
+        ],
+        'success' => [
+            'name' => 'Forest Green',
+            'description' => 'Fresh and natural green',
+            'preview' => 'linear-gradient(135deg, #059669, #6EE7B7)', // Emerald 600 -> Emerald 300
+        ],
+        'warning' => [
+            'name' => 'Sunset Orange',
+            'description' => 'Warm and energetic orange',
+            'preview' => 'linear-gradient(135deg, #d97706, #FCD34D)', // Amber 600 -> Amber 300
+        ],
+        'secondary' => [
+            'name' => 'Slate Gray',
+            'description' => 'Sophisticated neutral gray',
+            'preview' => 'linear-gradient(135deg, #475569, #A7B3C4)', // Slate 700 -> Lightened Slate
         ],
     ];
 

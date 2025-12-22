@@ -44,16 +44,12 @@ class SessionTimer {
         console.log('   Warning threshold:', this.warningThreshold, 'seconds');
         console.log('   Activity debounce:', this.activityDebounceDelay / 1000, 'seconds');
 
-        // Get session start time from server or localStorage
-        const sessionStartTime = this.getSessionStartTime();
-
-        if (sessionStartTime) {
-            // Calculate elapsed time
-            const elapsedSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
-            this.remainingSeconds = Math.max(0, this.totalSeconds - elapsedSeconds);
-            console.log('   Elapsed time:', elapsedSeconds, 'seconds');
-            console.log('   Remaining time:', this.formatTime(this.remainingSeconds));
-        }
+        // Page load implies active session (server touched), so always reset the timer.
+        // This fixes issues where old localStorage data persists after login/logout.
+        this.resetSessionStartTime();
+        
+        console.log('   Timer reset to full duration (Page Load / Init)');
+        console.log('   Remaining time:', this.formatTime(this.remainingSeconds));
 
         // Start the timer
         this.startTimer();
@@ -140,6 +136,11 @@ class SessionTimer {
             timerElement.classList.add('text-warning');
         } else {
             timerElement.classList.add('text-body-secondary');
+        }
+
+        // Auto-hide warning if time was replenished (e.g. by another tab or activity)
+        if (this.remainingSeconds > this.warningThreshold && this.warningShown) {
+            this.hideWarningToast();
         }
     }
 
