@@ -196,41 +196,43 @@
                 const root = document.documentElement;
 
                 // Define theme colors with harmonious gradients
+                // Define theme colors with harmonious gradients (Modern Palette)
+                // Define theme colors with harmonious gradients (Modern Palette)
                 const themeColors = {
                     primary: {
-                        base: '#0d6efd',
-                        dark: '#0a58ca',
-                        light: '#7bb5ff',
-                        lighter: '#6ea8fe',
-                        rgb: '13, 110, 253'
+                        base: '#1B408E', // Deep Blue
+                        dark: '#143372',
+                        light: '#5375C2', // Lightened +8%
+                        lighter: '#7D99D6',
+                        rgb: '27, 64, 142'
                     },
                     secondary: {
-                        base: '#6c757d',
-                        dark: '#5a6268',
-                        light: '#a8b1bb',
-                        lighter: '#adb5bd',
-                        rgb: '108, 117, 125'
+                        base: '#475569', // Slate 700
+                        dark: '#334155',
+                        light: '#A7B3C4', // Lightened +8%
+                        lighter: '#CBD5E1', // Slate 300
+                        rgb: '71, 85, 105'
                     },
                     success: {
-                        base: '#198754',
-                        dark: '#146c43',
-                        light: '#3bffc3',
-                        lighter: '#75b798',
-                        rgb: '25, 135, 84'
+                        base: '#059669', // Emerald 600
+                        dark: '#047857',
+                        light: '#6EE7B7', // Emerald 300 (Lighter)
+                        lighter: '#A7F3D0',
+                        rgb: '5, 150, 105'
                     },
                     warning: {
-                        base: '#ffc107',
-                        dark: '#e0a800',
-                        light: '#ffe066',
-                        lighter: '#ffe69c',
-                        rgb: '255, 193, 7'
+                        base: '#d97706', // Amber 600
+                        dark: '#b45309',
+                        light: '#FCD34D', // Amber 300 (Lighter)
+                        lighter: '#FDE68A',
+                        rgb: '217, 119, 6'
                     },
                     info: {
-                        base: '#0dcaf0',
-                        dark: '#0891b2',
-                        light: '#6ff5ff',
-                        lighter: '#9eeaf9',
-                        rgb: '13, 202, 240'
+                        base: '#0891b2', // Cyan 600
+                        dark: '#0e7490',
+                        light: '#67E8F9', // Cyan 300 (Lighter)
+                        lighter: '#A5F3FC',
+                        rgb: '8, 145, 178'
                     }
                 };
 

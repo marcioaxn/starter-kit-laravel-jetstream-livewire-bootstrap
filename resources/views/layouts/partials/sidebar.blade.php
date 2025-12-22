@@ -204,7 +204,7 @@
 
 .nav-link-modern.active:hover {
     /* Keep gradient background on hover for active items */
-    background: inherit !important;
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-primary-light)) !important;
     transform: translateX(0);
     color: white !important;
 }
