@@ -6,6 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="session-lifetime" content="{{ config('session.lifetime') }}">
         <meta data-update-uri="{{ url('/livewire/update') }}">
+        <meta name="route-login" content="{{ route('login') }}">
+        <meta name="route-logout" content="{{ route('logout') }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 

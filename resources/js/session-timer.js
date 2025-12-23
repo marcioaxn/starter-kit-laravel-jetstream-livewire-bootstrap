@@ -38,18 +38,18 @@ class SessionTimer {
     }
 
     init() {
-        console.log('🚀 Session Timer Initialized');
+        console.log('🚀 Session Timer Initialized (Scientific/Absolute Mode)');
         console.log('   Session lifetime:', this.sessionLifetime, 'minutes');
-        console.log('   Total seconds:', this.totalSeconds);
-        console.log('   Warning threshold:', this.warningThreshold, 'seconds');
-        console.log('   Activity debounce:', this.activityDebounceDelay / 1000, 'seconds');
-
-        // Page load implies active session (server touched), so always reset the timer.
-        // This fixes issues where old localStorage data persists after login/logout.
-        this.resetSessionStartTime();
         
-        console.log('   Timer reset to full duration (Page Load / Init)');
-        console.log('   Remaining time:', this.formatTime(this.remainingSeconds));
+        // Calculate the absolute expiration time based on NOW + Lifetime
+        // This is robust against browser throttling/sleeping tabs
+        const now = Date.now();
+        this.expirationTime = now + (this.sessionLifetime * 60 * 1000);
+        
+        // Initial calculation
+        this.remainingSeconds = this.sessionLifetime * 60;
+
+        console.log('   Expiration Timestamp:', new Date(this.expirationTime).toLocaleTimeString());
 
         // Start the timer
         this.startTimer();
@@ -62,29 +62,6 @@ class SessionTimer {
 
         // Create warning toast element
         this.createWarningToast();
-
-        console.log('✅ Session Timer ready - Monitoring activity...');
-    }
-
-    getSessionStartTime() {
-        // Try to get from localStorage
-        let startTime = localStorage.getItem('session_start_time');
-
-        if (!startTime) {
-            // Set current time as start time
-            startTime = Date.now();
-            localStorage.setItem('session_start_time', startTime);
-        }
-
-        return parseInt(startTime);
-    }
-
-    resetSessionStartTime() {
-        const newStartTime = Date.now();
-        localStorage.setItem('session_start_time', newStartTime);
-        this.remainingSeconds = this.totalSeconds;
-        this.warningShown = false;
-        this.hideWarningToast();
     }
 
     startTimer() {
@@ -93,31 +70,47 @@ class SessionTimer {
         }
 
         this.isActive = true;
-
-        // Update immediately
         this.updateDisplay();
 
-        // Then update every second
+        // Run the check every second
         this.timerInterval = setInterval(() => {
             this.tick();
         }, 1000);
     }
 
     tick() {
-        if (this.remainingSeconds > 0) {
-            this.remainingSeconds--;
-            this.updateDisplay();
+        // Calculate remaining time by comparing NOW with TARGET
+        // This fixes the "inactive tab" issue where browsers slow down counters
+        const now = Date.now();
+        const diff = this.expirationTime - now;
+        
+        // Update local state
+        this.remainingSeconds = Math.max(0, Math.ceil(diff / 1000));
+        
+        this.updateDisplay();
 
-            // Check for warning threshold
-            if (this.remainingSeconds <= this.warningThreshold && !this.warningShown) {
-                this.showWarning();
-            }
-
-            // Check for expiration
-            if (this.remainingSeconds === 0) {
-                this.handleExpiration();
-            }
+        // Check for warning threshold
+        if (this.remainingSeconds <= this.warningThreshold && !this.warningShown && this.remainingSeconds > 0) {
+            this.showWarning();
         }
+
+        // Check for expiration
+        if (this.remainingSeconds <= 0) {
+            this.handleExpiration();
+        }
+    }
+
+    // When session is renewed (activity), we simply push the expiration time forward
+    resetSessionStartTime() {
+        const now = Date.now();
+        this.expirationTime = now + (this.sessionLifetime * 60 * 1000);
+        this.remainingSeconds = this.sessionLifetime * 60;
+        
+        this.warningShown = false;
+        this.hideWarningToast();
+        this.updateDisplay();
+        
+        console.log('   Timer extended. New expiration:', new Date(this.expirationTime).toLocaleTimeString());
     }
 
     updateDisplay() {
@@ -217,25 +210,39 @@ class SessionTimer {
 
     async performLogout() {
         try {
-            // Create a form and submit it
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '/logout';
-
-            // Add CSRF token
-            const csrfInput = document.createElement('input');
-            csrfInput.type = 'hidden';
-            csrfInput.name = '_token';
-            csrfInput.value = this.csrfToken;
-            form.appendChild(csrfInput);
-
-            // Add to document and submit
-            document.body.appendChild(form);
-            form.submit();
+            console.log('🚪 Executing auto-logout sequence...');
+            
+            // Get routes from Meta Tags (Generated by Laravel route() helper)
+            // This ensures we respect subdirectories and absolute paths
+            const logoutUrl = document.querySelector('meta[name="route-logout"]')?.getAttribute('content') || '/logout';
+            
+            // Use fetch API instead of form submission
+            await fetch(logoutUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': this.csrfToken
+                }
+            });
+            
+            console.log('✅ Logout request completed');
         } catch (error) {
-            console.error('Error during auto-logout:', error);
-            // Fallback: redirect to login
-            window.location.href = '/login?session_expired=1';
+            console.warn('⚠️ Logout request failed (likely already expired):', error);
+        } finally {
+            // Determine login URL dynamically from Meta Tag
+            let loginUrl = document.querySelector('meta[name="route-login"]')?.getAttribute('content') || '/login';
+            
+            try {
+                // Safely append query parameter
+                const urlObj = new URL(loginUrl);
+                urlObj.searchParams.set('session_expired', '1');
+                window.location.href = urlObj.toString();
+            } catch (e) {
+                // Fallback for relative paths if URL constructor fails (should not happen with route())
+                const separator = loginUrl.includes('?') ? '&' : '?';
+                window.location.href = `${loginUrl}${separator}session_expired=1`;
+            }
         }
     }
 
@@ -321,18 +328,8 @@ class SessionTimer {
         document.addEventListener('visibilitychange', () => {
             if (!document.hidden) {
                 // Page became visible again
-                // Recalculate remaining time based on elapsed time
-                const sessionStartTime = this.getSessionStartTime();
-                const elapsedSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
-                this.remainingSeconds = Math.max(0, this.totalSeconds - elapsedSeconds);
-
-                // Update display
-                this.updateDisplay();
-
-                // Check if expired while inactive
-                if (this.remainingSeconds === 0) {
-                    this.handleExpiration();
-                }
+                // Force a tick update immediately to sync the UI with real time
+                this.tick();
             }
         });
     }
