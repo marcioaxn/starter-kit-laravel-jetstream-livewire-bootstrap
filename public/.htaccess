@@ -1,4 +1,14 @@
 <IfModule mod_rewrite.c>
+    # Increase PHP Timeout to 300s (5 minutes)
+    <IfModule mod_php.c>
+        php_value max_execution_time 300
+        php_value max_input_time 300
+    </IfModule>
+    <IfModule mod_php8.c>
+        php_value max_execution_time 300
+        php_value max_input_time 300
+    </IfModule>
+
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>

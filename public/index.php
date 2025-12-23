@@ -1,5 +1,10 @@
 <?php
 
+// Fix: Increase execution time to 300s (5min) to prevent timeouts on Windows/Slow IO
+// This MUST be the first thing to run to protect the autoloader.
+set_time_limit(300);
+ini_set('max_execution_time', 300);
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
