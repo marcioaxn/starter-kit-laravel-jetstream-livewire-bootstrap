@@ -1,2 +1,0 @@
-Reforçado o tratamento de erros 419 em `bootstrap/app.php` removendo restrições de tipo no interceptador de resposta.
-Criada a view customizada `resources/views/errors/419.blade.php` com redirecionamento via JavaScript como camada final de segurança para garantir que o usuário sempre retorne à tela de login em caso de expiração de sessão, mesmo em falhas de captura pelo backend.
