@@ -1,607 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
-
-    <!-- Styles / Scripts -->
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-</head>
-<body class="antialiased">
-    <!-- Enhanced Navbar -->
-    <nav class="navbar navbar-expand-lg welcome-navbar sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                <span class="brand-icon">
-                    <i class="bi bi-rocket-takeoff-fill"></i>
-                </span>
-                <span class="brand-text">{{ config('app.name', 'Laravel') }}</span>
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="bi bi-list"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#tech">Technology</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scroll-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <button type="button"
-                                id="welcomeThemeSwitcher"
-                                class="btn btn-theme-toggle"
-                                aria-label="Toggle theme"
-                                data-bs-toggle="tooltip"
-                                data-bs-placement="bottom"
-                                title="System">
-                            <i class="bi bi-circle-half"></i>
-                        </button>
-                    </li>
-                    @if (Route::has('login'))
-                        <li class="nav-item ms-2">
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class="btn btn-primary btn-nav-action">
-                                    <i class="bi bi-speedometer2 me-2"></i>Dashboard
-                                </a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-primary btn-nav-action">
-                                    <i class="bi bi-box-arrow-in-right me-2"></i>Log in
-                                </a>
-                            @endauth
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Error/Status Messages -->
-    @if (session('error'))
-        <div class="container mt-4">
-            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
-                <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
-                <div class="flex-grow-1">
-                    <strong>Error:</strong> {{ session('error') }}
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    @endif
-
-    @if (session('status'))
-        <div class="container mt-4">
-            <div class="alert alert-info alert-dismissible fade show d-flex align-items-center" role="alert">
-                <i class="bi bi-info-circle-fill me-3 fs-4"></i>
-                <div class="flex-grow-1">
-                    {{ session('status') }}
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    @endif
-
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-        <div class="hero-background">
-            <div class="hero-gradient"></div>
-            <div class="hero-pattern"></div>
-        </div>
-        <div class="container">
-            <div class="row align-items-center min-vh-100 py-5">
-                <div class="col-lg-6 hero-content">
-                    <div class="hero-badge">
-                        <i class="bi bi-stars me-2"></i>
-                        <span>Laravel Jetstream Starter Kit</span>
-                    </div>
-                    <h1 class="hero-title">
-                        Build Amazing
-                        <span class="hero-title-gradient">Web Applications</span>
-                    </h1>
-                    <p class="hero-description">
-                        A modern, professional starter kit combining Laravel 12, Jetstream, Livewire 3, and Bootstrap 5.
-                        Start building your next project with enterprise-ready features out of the box.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="{{ route('register') }}" class="btn btn-hero-primary">
-                            <i class="bi bi-rocket-takeoff me-2"></i>Get Started
-                        </a>
-                        <a href="#features" class="btn btn-hero-secondary scroll-link">
-                            <i class="bi bi-play-circle me-2"></i>Learn More
-                        </a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                            <div class="hero-stat-content">
-                                <div class="hero-stat-value">Secure</div>
-                                <div class="hero-stat-label">Authentication</div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">
-                                <i class="bi bi-lightning-charge"></i>
-                            </div>
-                            <div class="hero-stat-content">
-                                <div class="hero-stat-value">Fast</div>
-                                <div class="hero-stat-label">Development</div>
-                            </div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-icon">
-                                <i class="bi bi-palette"></i>
-                            </div>
-                            <div class="hero-stat-content">
-                                <div class="hero-stat-value">Modern</div>
-                                <div class="hero-stat-label">Design</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 hero-image">
-                    <div class="hero-illustration">
-                        <div class="illustration-card card-1">
-                            <i class="bi bi-code-slash"></i>
-                        </div>
-                        <div class="illustration-card card-2">
-                            <i class="bi bi-gear-fill"></i>
-                        </div>
-                        <div class="illustration-card card-3">
-                            <i class="bi bi-database-fill"></i>
-                        </div>
-                        <div class="illustration-main">
-                            <i class="bi bi-laptop"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section-padding" id="about">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="section-badge">
-                    <i class="bi bi-info-circle me-2"></i>About
-                </div>
-                <h2 class="section-title">Built for Modern Development</h2>
-                <p class="section-description">
-                    A carefully crafted starter kit that combines the best tools and practices
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-primary">
-                            <i class="bi bi-layers-fill"></i>
-                        </div>
-                        <h3 class="feature-title">Laravel 12</h3>
-                        <p class="feature-description">
-                            Latest version of the world's most popular PHP framework with modern features
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-success">
-                            <i class="bi bi-lightning-charge-fill"></i>
-                        </div>
-                        <h3 class="feature-title">Livewire 3</h3>
-                        <p class="feature-description">
-                            Build dynamic interfaces without leaving PHP - reactive and fast
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-warning">
-                            <i class="bi bi-shield-lock-fill"></i>
-                        </div>
-                        <h3 class="feature-title">Jetstream</h3>
-                        <p class="feature-description">
-                            Complete authentication scaffolding with 2FA and team management
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card">
-                        <div class="feature-icon feature-icon-info">
-                            <i class="bi bi-palette-fill"></i>
-                        </div>
-                        <h3 class="feature-title">Bootstrap 5</h3>
-                        <p class="feature-description">
-                            Responsive design system with dark mode support built-in
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section-padding section-alt" id="features">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="section-badge">
-                    <i class="bi bi-star-fill me-2"></i>Features
-                </div>
-                <h2 class="section-title">Everything You Need to Start</h2>
-                <p class="section-description">
-                    Enterprise-ready features included out of the box
-                </p>
-            </div>
-
-            <div class="row g-4 align-items-center mb-5">
-                <div class="col-lg-6">
-                    <div class="feature-showcase-image">
-                        <div class="showcase-card showcase-primary">
-                            <i class="bi bi-person-check-fill"></i>
-                            <span>Authentication</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="feature-showcase-content">
-                        <h3 class="showcase-title">Complete Authentication System</h3>
-                        <p class="showcase-description">
-                            Ready-to-use login, registration, password reset, email verification, and two-factor authentication.
-                        </p>
-                        <ul class="showcase-list">
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Email verification</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Two-factor authentication (2FA)</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Password reset with secure tokens</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Session management across devices</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 align-items-center flex-lg-row-reverse mb-5">
-                <div class="col-lg-6">
-                    <div class="feature-showcase-image">
-                        <div class="showcase-card showcase-success">
-                            <i class="bi bi-grid-3x3-gap-fill"></i>
-                            <span>Components</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="feature-showcase-content">
-                        <h3 class="showcase-title">Rich Component Library</h3>
-                        <p class="showcase-description">
-                            Pre-built Bootstrap components with Livewire integration for rapid development.
-                        </p>
-                        <ul class="showcase-list">
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Data tables with sorting and filtering</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Modal dialogs and alerts</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Form components with validation</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Toast notifications</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <div class="feature-showcase-image">
-                        <div class="showcase-card showcase-warning">
-                            <i class="bi bi-moon-stars-fill"></i>
-                            <span>Dark Mode</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="feature-showcase-content">
-                        <h3 class="showcase-title">Built-in Dark Mode</h3>
-                        <p class="showcase-description">
-                            Fully responsive dark mode with system preference detection and manual toggle.
-                        </p>
-                        <ul class="showcase-list">
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Auto-detect system preferences</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Manual theme switcher</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Persistent user preference</span>
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle-fill"></i>
-                                <span>Smooth theme transitions</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technology Stack -->
-    <section class="section-padding" id="tech">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="section-badge">
-                    <i class="bi bi-stack me-2"></i>Technology
-                </div>
-                <h2 class="section-title">Modern Technology Stack</h2>
-                <p class="section-description">
-                    Built with industry-leading tools and frameworks
-                </p>
-            </div>
-
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-filetype-php"></i>
-                    </div>
-                    <div class="tech-name">PHP 8.2+</div>
-                    <div class="tech-description">Modern PHP features</div>
-                </div>
-
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-database-fill"></i>
-                    </div>
-                    <div class="tech-name">MySQL / PostgreSQL</div>
-                    <div class="tech-description">Flexible database support</div>
-                </div>
-
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-window-stack"></i>
-                    </div>
-                    <div class="tech-name">Alpine.js</div>
-                    <div class="tech-description">Lightweight interactivity</div>
-                </div>
-
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-tsunami"></i>
-                    </div>
-                    <div class="tech-name">Vite</div>
-                    <div class="tech-description">Lightning fast builds</div>
-                </div>
-
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-file-earmark-code"></i>
-                    </div>
-                    <div class="tech-name">SCSS</div>
-                    <div class="tech-description">Powerful styling</div>
-                </div>
-
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <i class="bi bi-shield-fill-check"></i>
-                    </div>
-                    <div class="tech-name">Sanctum</div>
-                    <div class="tech-description">API authentication</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section-padding section-alt" id="testimonials">
-        <div class="container">
-            <div class="section-header text-center">
-                <div class="section-badge">
-                    <i class="bi bi-chat-quote-fill me-2"></i>Testimonials
-                </div>
-                <h2 class="section-title">Loved by Developers</h2>
-                <p class="section-description">
-                    See what developers are saying about this starter kit
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "This starter kit saved me weeks of development time. The integration between Laravel, Livewire, and Bootstrap is flawless!"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <div class="author-info">
-                                <div class="author-name">Sarah Johnson</div>
-                                <div class="author-role">Full Stack Developer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "The dark mode implementation is perfect, and the component library is exactly what I needed for my SaaS project."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <div class="author-info">
-                                <div class="author-name">Michael Chen</div>
-                                <div class="author-role">Product Manager</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="testimonial-text">
-                            "Professional, clean code with excellent documentation. Perfect foundation for enterprise applications."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <div class="author-info">
-                                <div class="author-name">Emily Rodriguez</div>
-                                <div class="author-role">Tech Lead</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section-padding section-contact" id="contact">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="contact-card">
-                        <div class="section-header text-center">
-                            <div class="section-badge">
-                                <i class="bi bi-envelope-fill me-2"></i>Contact
-                            </div>
-                            <h2 class="section-title">Get in Touch</h2>
-                            <p class="section-description">
-                                Have questions? We'd love to hear from you.
-                            </p>
-                        </div>
-
-                        <div class="contact-info">
-                            <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i class="bi bi-github"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <div class="contact-info-label">GitHub</div>
-                                    <a href="https://github.com" class="contact-info-link">View Repository</a>
-                                </div>
-                            </div>
-
-                            <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i class="bi bi-book-fill"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <div class="contact-info-label">Documentation</div>
-                                    <a href="https://laravel.com/docs" class="contact-info-link">Read Docs</a>
-                                </div>
-                            </div>
-
-                            <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i class="bi bi-chat-dots-fill"></i>
-                                </div>
-                                <div class="contact-info-content">
-                                    <div class="contact-info-label">Community</div>
-                                    <a href="https://laracasts.com" class="contact-info-link">Join Discussion</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <i class="bi bi-rocket-takeoff-fill"></i>
-                    <span>{{ config('app.name', 'Laravel') }}</span>
-                </div>
-                <div class="footer-text">
-                    Built with <i class="bi bi-heart-fill text-danger"></i> using Laravel, Livewire & Bootstrap
-                </div>
-                <div class="footer-links">
-                    <a href="https://laravel.com" class="footer-link">Laravel</a>
-                    <a href="https://jetstream.laravel.com" class="footer-link">Jetstream</a>
-                    <a href="https://livewire.laravel.com" class="footer-link">Livewire</a>
-                    <a href="https://getbootstrap.com" class="footer-link">Bootstrap</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top" title="Back to top">
-        <i class="bi bi-arrow-up"></i>
-    </button>
-
-    <!-- Custom Styles -->
+<x-public-layout>
+    @push('styles')
+    <!-- Custom Styles for Welcome Page -->
     <style>
         /* ========== Variables ========== */
         :root {
@@ -1412,7 +811,597 @@
             }
         }
     </style>
+    @endpush
 
+    <!-- Enhanced Navbar -->
+    <nav class="navbar navbar-expand-lg welcome-navbar sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <span class="brand-icon">
+                    <i class="bi bi-rocket-takeoff-fill"></i>
+                </span>
+                <span class="brand-text">{{ config('app.name', 'Laravel') }}</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#tech">Technology</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scroll-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <button type="button"
+                                id="welcomeThemeSwitcher"
+                                class="btn btn-theme-toggle"
+                                aria-label="Toggle theme"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                title="System">
+                            <i class="bi bi-circle-half"></i>
+                        </button>
+                    </li>
+                    @if (Route::has('login'))
+                        <li class="nav-item ms-2">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="btn btn-primary btn-nav-action">
+                                    <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-primary btn-nav-action">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>Log in
+                                </a>
+                            @endauth
+                        </li>
+                    @endif
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Error/Status Messages -->
+    @if (session('error'))
+        <div class="container mt-4">
+            <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-3 fs-4"></i>
+                <div class="flex-grow-1">
+                    <strong>Error:</strong> {{ session('error') }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
+    @if (session('status'))
+        <div class="container mt-4">
+            <div class="alert alert-info alert-dismissible fade show d-flex align-items-center" role="alert">
+                <i class="bi bi-info-circle-fill me-3 fs-4"></i>
+                <div class="flex-grow-1">
+                    {{ session('status') }}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6 hero-content">
+                    <div class="hero-badge">
+                        <i class="bi bi-stars me-2"></i>
+                        <span>Laravel Jetstream Starter Kit</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Build Amazing
+                        <span class="hero-title-gradient">Web Applications</span>
+                    </h1>
+                    <p class="hero-description">
+                        A modern, professional starter kit combining Laravel 12, Jetstream, Livewire 3, and Bootstrap 5.
+                        Start building your next project with enterprise-ready features out of the box.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="{{ route('register') }}" class="btn btn-hero-primary">
+                            <i class="bi bi-rocket-takeoff me-2"></i>Get Started
+                        </a>
+                        <a href="#features" class="btn btn-hero-secondary scroll-link">
+                            <i class="bi bi-play-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="hero-stat-content">
+                                <div class="hero-stat-value">Secure</div>
+                                <div class="hero-stat-label">Authentication</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">
+                                <i class="bi bi-lightning-charge"></i>
+                            </div>
+                            <div class="hero-stat-content">
+                                <div class="hero-stat-value">Fast</div>
+                                <div class="hero-stat-label">Development</div>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <div class="hero-stat-content">
+                                <div class="hero-stat-value">Modern</div>
+                                <div class="hero-stat-label">Design</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <div class="hero-illustration">
+                        <div class="illustration-card card-1">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <div class="illustration-card card-2">
+                            <i class="bi bi-gear-fill"></i>
+                        </div>
+                        <div class="illustration-card card-3">
+                            <i class="bi bi-database-fill"></i>
+                        </div>
+                        <div class="illustration-main">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge">
+                    <i class="bi bi-info-circle me-2"></i>About
+                </div>
+                <h2 class="section-title">Built for Modern Development</h2>
+                <p class="section-description">
+                    A carefully crafted starter kit that combines the best tools and practices
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon feature-icon-primary">
+                            <i class="bi bi-layers-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Laravel 12</h3>
+                        <p class="feature-description">
+                            Latest version of the world's most popular PHP framework with modern features
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon feature-icon-success">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Livewire 3</h3>
+                        <p class="feature-description">
+                            Build dynamic interfaces without leaving PHP - reactive and fast
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon feature-icon-warning">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Jetstream</h3>
+                        <p class="feature-description">
+                            Complete authentication scaffolding with 2FA and team management
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon feature-icon-info">
+                            <i class="bi bi-palette-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Bootstrap 5</h3>
+                        <p class="feature-description">
+                            Responsive design system with dark mode support built-in
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding section-alt" id="features">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge">
+                    <i class="bi bi-star-fill me-2"></i>Features
+                </div>
+                <h2 class="section-title">Everything You Need to Start</h2>
+                <p class="section-description">
+                    Enterprise-ready features included out of the box
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-center mb-5">
+                <div class="col-lg-6">
+                    <div class="feature-showcase-image">
+                        <div class="showcase-card showcase-primary">
+                            <i class="bi bi-person-check-fill"></i>
+                            <span>Authentication</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-showcase-content">
+                        <h3 class="showcase-title">Complete Authentication System</h3>
+                        <p class="showcase-description">
+                            Ready-to-use login, registration, password reset, email verification, and two-factor authentication.
+                        </p>
+                        <ul class="showcase-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Email verification</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Two-factor authentication (2FA)</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Password reset with secure tokens</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Session management across devices</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center flex-lg-row-reverse mb-5">
+                <div class="col-lg-6">
+                    <div class="feature-showcase-image">
+                        <div class="showcase-card showcase-success">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                            <span>Components</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-showcase-content">
+                        <h3 class="showcase-title">Rich Component Library</h3>
+                        <p class="showcase-description">
+                            Pre-built Bootstrap components with Livewire integration for rapid development.
+                        </p>
+                        <ul class="showcase-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Data tables with sorting and filtering</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Modal dialogs and alerts</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Form components with validation</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Toast notifications</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <div class="feature-showcase-image">
+                        <div class="showcase-card showcase-warning">
+                            <i class="bi bi-moon-stars-fill"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-showcase-content">
+                        <h3 class="showcase-title">Built-in Dark Mode</h3>
+                        <p class="showcase-description">
+                            Fully responsive dark mode with system preference detection and manual toggle.
+                        </p>
+                        <ul class="showcase-list">
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Auto-detect system preferences</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Manual theme switcher</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Persistent user preference</span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                <span>Smooth theme transitions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section-padding" id="tech">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge">
+                    <i class="bi bi-stack me-2"></i>Technology
+                </div>
+                <h2 class="section-title">Modern Technology Stack</h2>
+                <p class="section-description">
+                    Built with industry-leading tools and frameworks
+                </p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-filetype-php"></i>
+                    </div>
+                    <div class="tech-name">PHP 8.2+</div>
+                    <div class="tech-description">Modern PHP features</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-database-fill"></i>
+                    </div>
+                    <div class="tech-name">MySQL / PostgreSQL</div>
+                    <div class="tech-description">Flexible database support</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-window-stack"></i>
+                    </div>
+                    <div class="tech-name">Alpine.js</div>
+                    <div class="tech-description">Lightweight interactivity</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-tsunami"></i>
+                    </div>
+                    <div class="tech-name">Vite</div>
+                    <div class="tech-description">Lightning fast builds</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-file-earmark-code"></i>
+                    </div>
+                    <div class="tech-name">SCSS</div>
+                    <div class="tech-description">Powerful styling</div>
+                </div>
+
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <div class="tech-name">Sanctum</div>
+                    <div class="tech-description">API authentication</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <div class="section-badge">
+                    <i class="bi bi-chat-quote-fill me-2"></i>Testimonials
+                </div>
+                <h2 class="section-title">Loved by Developers</h2>
+                <p class="section-description">
+                    See what developers are saying about this starter kit
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "This starter kit saved me weeks of development time. The integration between Laravel, Livewire, and Bootstrap is flawless!"
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Johnson</div>
+                                <div class="author-role">Full Stack Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "The dark mode implementation is perfect, and the component library is exactly what I needed for my SaaS project."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Michael Chen</div>
+                                <div class="author-role">Product Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Professional, clean code with excellent documentation. Perfect foundation for enterprise applications."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Emily Rodriguez</div>
+                                <div class="author-role">Tech Lead</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding section-contact" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <div class="section-header text-center">
+                            <div class="section-badge">
+                                <i class="bi bi-envelope-fill me-2"></i>Contact
+                            </div>
+                            <h2 class="section-title">Get in Touch</h2>
+                            <p class="section-description">
+                                Have questions? We'd love to hear from you.
+                            </p>
+                        </div>
+
+                        <div class="contact-info">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="bi bi-github"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <div class="contact-info-label">GitHub</div>
+                                    <a href="https://github.com" class="contact-info-link">View Repository</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="bi bi-book-fill"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <div class="contact-info-label">Documentation</div>
+                                    <a href="https://laravel.com/docs" class="contact-info-link">Read Docs</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon">
+                                    <i class="bi bi-chat-dots-fill"></i>
+                                </div>
+                                <div class="contact-info-content">
+                                    <div class="contact-info-label">Community</div>
+                                    <a href="https://laracasts.com" class="contact-info-link">Join Discussion</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="bi bi-rocket-takeoff-fill"></i>
+                    <span>{{ config('app.name', 'Laravel') }}</span>
+                </div>
+                <div class="footer-text">
+                    Built with <i class="bi bi-heart-fill text-danger"></i> using Laravel, Livewire & Bootstrap
+                </div>
+                <div class="footer-links">
+                    <a href="https://laravel.com" class="footer-link">Laravel</a>
+                    <a href="https://jetstream.laravel.com" class="footer-link">Jetstream</a>
+                    <a href="https://livewire.laravel.com" class="footer-link">Livewire</a>
+                    <a href="https://getbootstrap.com" class="footer-link">Bootstrap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" title="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    @push('scripts')
     <!-- JavaScript -->
     <script>
         // Theme management
@@ -1532,5 +1521,5 @@
             });
         });
     </script>
-</body>
-</html>
+    @endpush
+</x-public-layout>
