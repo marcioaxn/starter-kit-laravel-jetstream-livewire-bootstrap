@@ -336,6 +336,7 @@ DB_PASSWORD=your_database_password
 
 **Important Notes:**
 - **Never commit `.env` to version control** - it contains sensitive data
+- **Configure `APP_URL` correctly:** This variable MUST match the exact URL used to access the system (e.g., `http://localhost:8000`). If incorrect, links in emails (like password reset) and asset loading may fail.
 - Change `APP_ENV=production` and `APP_DEBUG=false` in production
 - Update `APP_URL` to your actual domain in production
 
