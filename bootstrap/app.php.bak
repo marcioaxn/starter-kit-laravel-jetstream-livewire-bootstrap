@@ -20,16 +20,6 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        // Intercept 419 Responses (Fallback for Token Mismatch)
-        $exceptions->respond(function ($response) {
-            if (method_exists($response, 'getStatusCode') && $response->getStatusCode() === 419) {
-                return redirect()
-                    ->route('login')
-                    ->with('status', 'Your session token has expired. Please sign in again.');
-            }
-            return $response;
-        });
-
         // Handle Authentication Exception (Session Expired / Unauthenticated)
         $exceptions->render(function (AuthenticationException $e, Request $request) {
             if ($request->expectsJson()) {
@@ -55,7 +45,14 @@ return Application::configure(basePath: dirname(__DIR__))
                 return response()->json(['message' => 'CSRF token mismatch.'], 419);
             }
 
-            // Redirect all users to login to refresh token
+            // Only redirect to welcome if user is not authenticated
+            if (!auth()->check()) {
+                return redirect()
+                    ->route('welcome')
+                    ->with('error', 'Your session has expired. Please try again.');
+            }
+
+            // For authenticated users, redirect to login to refresh token
             return redirect()
                 ->route('login')
                 ->with('status', 'Your session token has expired. Please sign in again.');
