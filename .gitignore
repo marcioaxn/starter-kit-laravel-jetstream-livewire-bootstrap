@@ -8,6 +8,7 @@
 /.claude
 /.fleet
 /.gemini
+/gemini
 /.idea
 /.nova
 /.phpunit.cache
@@ -15,6 +16,7 @@
 /.zed
 /ai
 /auth.json
+/gemini
 /node_modules
 /public/build
 /public/hot
